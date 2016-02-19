@@ -9,6 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,12 +32,26 @@ public class ActivityHome extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+            actionBar.setDefaultDisplayHomeAsUpEnabled(false);
             actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setTitle("");
+
+            actionBar.setDisplayOptions(actionBar.getDisplayOptions()
+                    | ActionBar.DISPLAY_SHOW_CUSTOM);
+            ImageView imageView = new ImageView(actionBar.getThemedContext());
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            imageView.setImageResource(R.drawable.logo_action_bar);
+            ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(
+                    ActionBar.LayoutParams.WRAP_CONTENT,
+                    ActionBar.LayoutParams.WRAP_CONTENT, Gravity.RIGHT
+                    | Gravity.CENTER_VERTICAL);
+            layoutParams.rightMargin = 40;
+            imageView.setLayoutParams(layoutParams);
+            actionBar.setCustomView(imageView);
         }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -77,5 +95,16 @@ public class ActivityHome extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+    }
+
+    public void backToMenu(View v)
+    {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        //kosongkan fragment navigation backstack
+        while (fragmentManager.popBackStackImmediate()) {
+        }
+        //apabila fragment navigation backstack sudah kosong maka munculkan tampilan utama
+        RelativeLayout mainContainer = (RelativeLayout) findViewById(R.id.RelativeLayoutGridViewMenu);
+        mainContainer.setVisibility(RelativeLayout.VISIBLE);
     }
 }

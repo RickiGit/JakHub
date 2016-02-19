@@ -1,13 +1,15 @@
 package com.altrovis.jakhub;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.RelativeLayout;
 
 import com.altrovis.jakhub.Business.GridViewAdapter;
 import com.altrovis.jakhub.Entities.ItemMenu;
@@ -29,7 +31,7 @@ public class FragmentLayanan extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_layanan, container, false);
+        final View view = inflater.inflate(R.layout.fragment_layanan, container, false);
 
         GridView gridView = (GridView) view.findViewById(R.id.GridViewMenu);
         final ArrayList<ItemMenu> listOfMenu = new ArrayList<ItemMenu>();
@@ -42,8 +44,19 @@ public class FragmentLayanan extends Fragment  {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (listOfMenu.get(position).getID() == 1) {
-                    Intent intent = new Intent(getActivity(), ActivityKK.class);
-                    startActivity(intent);
+
+                    RelativeLayout mainContainer = (RelativeLayout) getActivity().findViewById(R.id.RelativeLayoutGridViewMenu);
+                    mainContainer.setVisibility(RelativeLayout.GONE);
+
+                    //tambahkan fragment ke fragment navigation backstack{
+                    FragmentDomisiliKTP newFragment = new FragmentDomisiliKTP();
+
+                    //untuk melakukan navigasi fragment, gunakan implementasi berikut ini:
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.LinearLayoutFragmentDomisili, newFragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
                 } else if (listOfMenu.get(position).getID() == 2) {
 
                 }
