@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -50,12 +51,13 @@ public class ActivityHome extends AppCompatActivity {
                     | ActionBar.DISPLAY_SHOW_CUSTOM);
             ImageView imageView = new ImageView(actionBar.getThemedContext());
             imageView.setScaleType(ImageView.ScaleType.CENTER);
-            imageView.setImageResource(R.drawable.logo_action_bar);
+            imageView.setImageResource(R.drawable.icon);
             ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(
                     ActionBar.LayoutParams.WRAP_CONTENT,
                     ActionBar.LayoutParams.WRAP_CONTENT, Gravity.RIGHT
                     | Gravity.CENTER_VERTICAL);
             layoutParams.rightMargin = 40;
+            imageView.requestLayout();
             imageView.setLayoutParams(layoutParams);
             actionBar.setCustomView(imageView);
         }
@@ -123,7 +125,8 @@ public class ActivityHome extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_activity_home, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_activity_home, menu);
         return true;
     }
 

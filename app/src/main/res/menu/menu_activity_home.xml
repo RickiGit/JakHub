@@ -4,12 +4,21 @@
     tools:context="com.altrovis.jakhub.ActivityHome">
 
     <item
-        android:id="@+id/menuProfil"
-        android:title="Profil" />
-    <item
-        android:id="@+id/menuPengaturan"
-        android:title="Pengaturan" />
-    <item
-        android:id="@+id/menuKeluar"
-        android:title="Keluar"/>
+        app:showAsAction="always"
+        android:icon="@drawable/ic_settings">
+        <menu>
+            <item
+                android:id="@+id/menuProfil"
+                android:title="Profil"
+                android:icon="@mipmap/ic_profil"/>
+            <item
+                android:id="@+id/menuPengaturan"
+                android:title="Pengaturan"
+                android:icon="@mipmap/ic_pengaturan"/>
+            <item
+                android:id="@+id/menuKeluar"
+                android:title="Keluar"
+                android:icon="@mipmap/ic_logout"/>
+        </menu>
+    </item>
 </menu>
