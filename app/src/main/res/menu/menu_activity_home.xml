@@ -3,9 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.altrovis.jakhub.ActivityHome">
 
-    <item android:id="@+id/action_tambah_isu"
-        android:icon="@drawable/ic_settings"
-        android:title="Pengaturan"
-        android:showAsAction="ifRoom"
-        />
+    <item
+        android:id="@+id/menuProfil"
+        android:title="Profil" />
+    <item
+        android:id="@+id/menuPengaturan"
+        android:title="Pengaturan" />
+    <item
+        android:id="@+id/menuKeluar"
+        android:title="Keluar"/>
 </menu>

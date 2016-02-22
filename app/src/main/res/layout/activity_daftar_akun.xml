@@ -12,12 +12,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="25dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Daftar akun baru"
-                android:textSize="18dp"
-                android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -63,6 +57,19 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:hint="Tanggal Lahir"
+                android:background="@drawable/edittext_login"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:layout_marginBottom="10dp"/>
+
+            <Spinner
+                android:id="@+id/SpinnerJenisKelamin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:background="@drawable/edittext_login"
                 android:layout_marginBottom="10dp"/>
 

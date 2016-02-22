@@ -37,6 +37,9 @@ public class FragmentLayanan extends Fragment  {
         final ArrayList<ItemMenu> listOfMenu = new ArrayList<ItemMenu>();
         listOfMenu.add(new ItemMenu(1, "KTP/KK", R.drawable.icon_ktp));
         listOfMenu.add(new ItemMenu(2, "Persuratan", R.drawable.icon_persuratan));
+        listOfMenu.add(new ItemMenu(3, "Mutasi", R.drawable.icon_mutasi));
+        listOfMenu.add(new ItemMenu(4, "Pelaporan", R.drawable.icon_pelaporan));
+        listOfMenu.add(new ItemMenu(5, "Qlue", R.drawable.icon_clue));
         GridViewAdapter adapter = new GridViewAdapter(getContext(), R.layout.grid_view_item_menu, listOfMenu);
         gridView.setAdapter(adapter);
 
