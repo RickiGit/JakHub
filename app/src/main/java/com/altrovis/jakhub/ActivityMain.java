@@ -56,4 +56,9 @@ public class ActivityMain extends AppCompatActivity {
             }
         });
     }
+
+    public void goToLupaKataSandi()
+    {
+
+    }
 }

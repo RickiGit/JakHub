@@ -8,9 +8,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.util.Calendar;
 
@@ -18,6 +20,7 @@ public class ActivityDaftarAkun extends AppCompatActivity {
 
     Button buttonDaftar;
     EditText editTextTanggalLahir, editTextNIK;
+    Spinner spinnerJK;
     int years, month, day;
     static final int DIALOG_TANGGAL_LAHIR = 0;
 
@@ -40,6 +43,7 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         inisialisasiLayout();
         goToAktivasi();
         showDialogTanggalLahir();
+        setSpinnerJenisKelamin();
     }
 
     public void inisialisasiLayout()
@@ -47,6 +51,7 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         buttonDaftar = (Button)findViewById(R.id.ButtonDaftar);
         editTextTanggalLahir = (EditText)findViewById(R.id.EditTextTanggalLahir);
         editTextNIK = (EditText)findViewById(R.id.EditTextNIK);
+        spinnerJK = (Spinner)findViewById(R.id.SpinnerJenisKelamin);
     }
 
     public void goToAktivasi()
@@ -60,6 +65,14 @@ public class ActivityDaftarAkun extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void setSpinnerJenisKelamin()
+    {
+        String[] listSpinner = getResources().getStringArray(R.array.spinerJenisKelamin);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listSpinner);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerJK.setAdapter(dataAdapter);
     }
 
     @Override
