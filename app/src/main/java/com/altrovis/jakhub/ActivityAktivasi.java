@@ -26,8 +26,8 @@ public class ActivityAktivasi extends AppCompatActivity {
         editTextNIK.setText(noNIK);
 
         new AlertDialog.Builder(this)
-                .setTitle("Kode Aktifasi")
-                .setMessage("Kode Aktifasi anda adalah 525")
+                .setTitle("Kode Aktivasi")
+                .setMessage("Kode Aktivasi Anda adalah 525")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                     }
