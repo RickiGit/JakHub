@@ -1,10 +1,11 @@
 package com.altrovis.jakhub.Business;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
+import com.altrovis.jakhub.Business.Notifikasi.NotifikasiAdapter;
 import com.altrovis.jakhub.Entities.GlobalVariable;
 
 /**
@@ -19,10 +20,11 @@ public class GetAllPerpanjangKTPAsyncTask extends AsyncTask<Void, Void, Void> {
     private String NIK;
 
     private ProgressDialog progressDialog;
-    private Context context;
+    private FragmentActivity context;
     private String errorMessage = "";
+    private NotifikasiAdapter adapter;
 
-    public GetAllPerpanjangKTPAsyncTask(Context context, String NIK, String WaktuPelayanan) {
+    public GetAllPerpanjangKTPAsyncTask(FragmentActivity context, String NIK, NotifikasiAdapter adapter) {
 
         this.NIK = NIK;
         urlComplete = urlWebService.concat(param1).concat(this.NIK);
@@ -31,6 +33,8 @@ public class GetAllPerpanjangKTPAsyncTask extends AsyncTask<Void, Void, Void> {
         progressDialog = new ProgressDialog(this.context);
         progressDialog.setMessage("Silahkan Tunggu");
         progressDialog.show();
+
+        this.adapter = adapter;
     }
 
     protected void onPreExecute() {
@@ -62,6 +66,10 @@ public class GetAllPerpanjangKTPAsyncTask extends AsyncTask<Void, Void, Void> {
         if (errorMessage.length() > 0) {
             Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
         }
+
+        adapter.clear();
+        adapter.addAll(GlobalVariable.listPerpanjangKTP);
+        adapter.notifyDataSetChanged();
     }
 
 }

@@ -32,7 +32,7 @@ public class FragmentDomisiliKTP extends Fragment {
 
         this.SetTextView(rootView);
 
-        Spinner spinnerLayanan = (Spinner) rootView.findViewById(R.id.SpinnerKTP);
+        final Spinner spinnerLayanan = (Spinner) rootView.findViewById(R.id.SpinnerKTP);
 
         String[] listSpinner = getResources().getStringArray(R.array.spinnerKTP);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, listSpinner);
@@ -52,6 +52,8 @@ public class FragmentDomisiliKTP extends Fragment {
                             fragmentTransaction.replace(R.id.LinearLayoutFragmentDomisili, newFragment);
                             fragmentTransaction.addToBackStack(null);
                             fragmentTransaction.commit();
+
+                            spinnerLayanan.setSelection(0);
                         }
 
                     }

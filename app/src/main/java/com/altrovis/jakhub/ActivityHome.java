@@ -132,18 +132,21 @@ public class ActivityHome extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        super.onBackPressed();
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        }
+        else
+        {
+            super.onBackPressed();
+        }
 
         //supaya tidak terjadi bug container fragment menjadi blank
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
 
             //apabila fragment navigation backstack sudah kosong maka munculkan tampilan utama
             RelativeLayout mainContainer = (RelativeLayout) findViewById(R.id.RelativeLayoutGridViewMenu);
             mainContainer.setVisibility(RelativeLayout.VISIBLE);
         }
-
-        return;
     }
 
     @Override
@@ -164,7 +167,7 @@ public class ActivityHome extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void AddPerpanjangKTPtoWebService(View ev){
+    public void AddPerpanjangKTPtoWebService(View ev) {
 
         SharedPreferences login = getSharedPreferences("login", MODE_PRIVATE);
         String nik = login.getString("nik", "");

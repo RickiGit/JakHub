@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     tools:context="com.altrovis.jakhub.FragmentNotifikasi">
 
-    <!-- TODO: Update blank fragment layout -->
     <ListView
-        android:id="@+id/ListViewAndroid"
+        android:id="@+id/ListVieNotifikasi"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 
