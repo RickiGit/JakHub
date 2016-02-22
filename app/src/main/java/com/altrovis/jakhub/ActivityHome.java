@@ -141,7 +141,7 @@ public class ActivityHome extends AppCompatActivity {
         }
 
         //supaya tidak terjadi bug container fragment menjadi blank
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
 
             //apabila fragment navigation backstack sudah kosong maka munculkan tampilan utama
             RelativeLayout mainContainer = (RelativeLayout) findViewById(R.id.RelativeLayoutGridViewMenu);
