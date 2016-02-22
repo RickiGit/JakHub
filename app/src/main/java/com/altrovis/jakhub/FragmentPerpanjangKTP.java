@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -74,18 +75,22 @@ public class FragmentPerpanjangKTP extends Fragment {
         GlobalVariable.editTextTanggal = (EditText) view.findViewById(R.id.EditTextTanggal);
         GlobalVariable.editTextTanggal.setInputType(InputType.TYPE_NULL);
 
-        GlobalVariable.editTextTanggal.setOnClickListener(new View.OnClickListener() {
+        GlobalVariable.editTextTanggal.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(), "DatePicker");
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    DialogFragment newFragment = new DatePickerFragment();
+                    newFragment.show(getFragmentManager(), "DatePicker");
+                }
+
+                return false;
             }
         });
 
         return view;
     }
 
-    private void SetTextView(View rootView){
+    private void SetTextView(View rootView) {
 
         TextView textViewNamaLengkap = (TextView) rootView.findViewById(R.id.TextViewNamaLengkap);
         TextView textViewTempatLahir = (TextView) rootView.findViewById(R.id.TextViewTempatLahir);
@@ -99,7 +104,6 @@ public class FragmentPerpanjangKTP extends Fragment {
         textViewTanggalLahir.setText(login.getString("tanggalLahir",""));
         textViewAlamat.setText(login.getString("alamat",""));
         textViewNoTelepon.setText(login.getString("noTelepon",""));
-
     }
 
 }
