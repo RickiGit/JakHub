@@ -1,5 +1,7 @@
 package com.altrovis.jakhub;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +24,14 @@ public class ActivityAktivasi extends AppCompatActivity {
 
         inisialisasiLayout();
         editTextNIK.setText(noNIK);
+
+        new AlertDialog.Builder(this)
+                .setTitle("Kode Aktifasi")
+                .setMessage("Kode Aktifasi anda adalah 525")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                }).show();
 
         goToHome();
     }

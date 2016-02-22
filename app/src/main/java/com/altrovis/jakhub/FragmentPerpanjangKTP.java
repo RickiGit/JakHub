@@ -1,5 +1,6 @@
 package com.altrovis.jakhub;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -13,12 +14,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.altrovis.jakhub.Entities.GlobalVariable;
 
 public class FragmentPerpanjangKTP extends Fragment {
 
     EditText editTextTanggal;
+    String nik;
 
     public FragmentPerpanjangKTP() {
         // Required empty public constructor
@@ -39,6 +42,8 @@ public class FragmentPerpanjangKTP extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_perpanjang_ktp, container, false);
+
+        this.SetTextView(view);
 
         Spinner spinnerLayanan = (Spinner) view.findViewById(R.id.SpinnerKTP);
 
@@ -82,4 +87,19 @@ public class FragmentPerpanjangKTP extends Fragment {
 
         return view;
     }
+
+    private void SetTextView(View rootView){
+
+        TextView textViewNamaLengkap = (TextView) rootView.findViewById(R.id.TextViewNamaLengkap);
+        TextView textViewTanggalLahir = (TextView) rootView.findViewById(R.id.TextViewTanggalLahir);
+        TextView textViewNoTelepon = (TextView) rootView.findViewById(R.id.TextViewNoTelepon);
+
+        SharedPreferences login = getActivity().getSharedPreferences("login", getActivity().MODE_PRIVATE);
+        nik = login.getString("nik","");
+        textViewNamaLengkap.setText(login.getString("nama",""));
+        textViewTanggalLahir.setText(login.getString("tanggalLahir", ""));
+        textViewNoTelepon.setText(login.getString("noTelepon", ""));
+
+    }
+
 }

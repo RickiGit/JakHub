@@ -85,6 +85,7 @@
                             android:textSize="15dp"></TextView>
 
                         <TextView
+                            android:id="@+id/TextViewNamaLengkap"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Suryo Sunyoto"
@@ -137,6 +138,7 @@
                             android:textSize="15dp"></TextView>
 
                         <TextView
+                            android:id="@+id/TextViewTanggalLahir"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="19 Agustus 1972"
@@ -192,6 +194,7 @@
                             android:textSize="15dp"></TextView>
 
                         <TextView
+                            android:id="@+id/TextViewNoTelepon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLines="5"
@@ -252,7 +255,8 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/button_login"
-                    android:text="UNDUH"
+                    android:text="KIRIM"
+                    android:onClick="Ad"
                     android:textColor="#FFFFFF"
                     android:id="@+id/ButtonUnduh"
                     android:textStyle="bold" />
