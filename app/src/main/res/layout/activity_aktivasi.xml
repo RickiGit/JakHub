@@ -71,6 +71,7 @@
                 android:paddingRight="15dp"
                 android:hint="Kode Aktivasi"
                 android:background="@drawable/edittext_login"
+                android:id="@+id/EditTextKodeAktivasi"
                 android:layout_marginBottom="15dp"/>
 
             <Button

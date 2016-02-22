@@ -16,6 +16,7 @@ import android.widget.EditText;
 public class ActivityAktivasi extends AppCompatActivity {
 
     EditText editTextNIK;
+    EditText editTextKodeAktivasi;
     Button buttonMasuk;
 
     @Override
@@ -51,6 +52,8 @@ public class ActivityAktivasi extends AppCompatActivity {
                             }
                         }).show();
 
+                editTextKodeAktivasi.setText("5251");
+
                 progress.cancel();
             }
         };
@@ -63,6 +66,7 @@ public class ActivityAktivasi extends AppCompatActivity {
 
     public void inisialisasiLayout() {
         editTextNIK = (EditText) findViewById(R.id.EditTextNIK);
+        editTextKodeAktivasi = (EditText) findViewById(R.id.EditTextKodeAktivasi);
         buttonMasuk = (Button) findViewById(R.id.ButtonMasuk);
     }
 
