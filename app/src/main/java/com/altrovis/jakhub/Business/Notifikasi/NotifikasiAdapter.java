@@ -11,7 +11,11 @@ import android.widget.TextView;
 import com.altrovis.jakhub.Entities.PerpanjangKTP;
 import com.altrovis.jakhub.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by ricki on 2/22/2016.
@@ -44,7 +48,13 @@ public class NotifikasiAdapter extends ArrayAdapter<PerpanjangKTP> {
         textViewJudul.setText("Konfirmasi KTP Perpanjangan \nKTP : " + perpanjangKTP.getNoReferensi());
 
         TextView textViewTanggal = (TextView) view.findViewById(R.id.TextViewTanggal);
-        textViewTanggal.setText(perpanjangKTP.getWaktuPelayanan());
+
+        String timestamp = perpanjangKTP.getWaktuPelayanan().replace("/Date(", "").replace(")/", "");
+        Date created = new Date(Long.parseLong(timestamp));
+
+        DateFormat formatter = new SimpleDateFormat("EEEE, dd MMMM yyyy", new Locale("id", "ID"));
+        String tanggal = formatter.format(created);
+        textViewTanggal.setText(tanggal);
 
         return view;
     }
