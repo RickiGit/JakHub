@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.altrovis.jakhub.Entities.GlobalVariable;
+
 public class FragmentPerpanjangKTP extends Fragment {
 
     EditText editTextTanggal;
@@ -67,13 +69,12 @@ public class FragmentPerpanjangKTP extends Fragment {
             }
         });
 
-        editTextTanggal = (EditText) view.findViewById(R.id.EditTextTanggal);
-        editTextTanggal.setInputType(InputType.TYPE_NULL);
+        GlobalVariable.editTextTanggal = (EditText) view.findViewById(R.id.EditTextTanggal);
+        GlobalVariable.editTextTanggal.setInputType(InputType.TYPE_NULL);
 
-        editTextTanggal.setOnClickListener(new View.OnClickListener() {
+        GlobalVariable.editTextTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerFragment tanggalFragment = new DatePickerFragment();
                 DialogFragment newFragment = new DatePickerFragment();
                 newFragment.show(getFragmentManager(), "DatePicker");
             }

@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -106,5 +107,12 @@ public class ActivityHome extends AppCompatActivity {
         //apabila fragment navigation backstack sudah kosong maka munculkan tampilan utama
         RelativeLayout mainContainer = (RelativeLayout) findViewById(R.id.RelativeLayoutGridViewMenu);
         mainContainer.setVisibility(RelativeLayout.VISIBLE);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_activity_home, menu);
+        return true;
     }
 }

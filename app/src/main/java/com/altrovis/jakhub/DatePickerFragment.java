@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 
+import com.altrovis.jakhub.Entities.GlobalVariable;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
-
-    String tanggal;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -31,13 +31,8 @@ public class DatePickerFragment extends DialogFragment
         Calendar c = Calendar.getInstance();
         c.set(year, month, day);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        tanggal = sdf.format(c.getTime());
-    }
-
-    public String setTanggal(DatePicker view, int year, int month, int day)
-    {
-        onDateSet(view, year, month, day);
-        return tanggal;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        String tanggal = sdf.format(c.getTime());
+        GlobalVariable.editTextTanggal.setText(tanggal);
     }
 }

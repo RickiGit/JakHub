@@ -1,5 +1,7 @@
 package com.altrovis.jakhub.Entities;
 
+import android.widget.EditText;
+
 import java.util.ArrayList;
 
 /**
@@ -16,5 +18,8 @@ public class GlobalVariable {
 
     public static ArrayList<PerpanjangKTP> listPerpanjangKTP = new ArrayList<PerpanjangKTP>();
     public static User user = new User();
+
+    public static String tanggalPicker = "";
+    public static EditText editTextTanggal;
 
 }
