@@ -104,11 +104,6 @@ public class FragmentPerpanjangKTP extends Fragment {
         textViewTanggalLahir.setText(login.getString("tanggalLahir",""));
         textViewAlamat.setText(login.getString("alamat",""));
         textViewNoTelepon.setText(login.getString("noTelepon",""));
-        nik = login.getString("nik", "");
-        textViewNamaLengkap.setText(login.getString("nama", ""));
-        textViewTanggalLahir.setText(login.getString("tanggalLahir", ""));
-        textViewNoTelepon.setText(login.getString("noTelepon", ""));
-
     }
 
 }
