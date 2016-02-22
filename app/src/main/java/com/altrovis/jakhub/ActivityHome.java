@@ -69,43 +69,48 @@ public class ActivityHome extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentLayanan(), "Layanan");
-        adapter.addFragment(new FragmentInformasi(), "Informasi");
-        adapter.addFragment(new FragmentNotifikasi(), "Notifikasi");
         viewPager.setAdapter(adapter);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
 
         @Override
         public Fragment getItem(int position) {
-            return mFragmentList.get(position);
+            if (position == 0) {
+                return new FragmentLayanan();
+            } else if (position == 1) {
+                return new FragmentInformasi();
+            } else if (position == 2) {
+                return new FragmentNotifikasi();
+            }
+
+            return null;
         }
 
         @Override
         public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+
+            if (position == 0) {
+                return "Layanan";
+            } else if (position == 1) {
+                return "Informasi";
+            } else if (position == 2) {
+                return "Notifikasi";
+            }
+
+            return null;
         }
     }
 
-    public void backToMenu(View v)
-    {
+    public void backToMenu(View v) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         //kosongkan fragment navigation backstack
         while (fragmentManager.popBackStackImmediate()) {

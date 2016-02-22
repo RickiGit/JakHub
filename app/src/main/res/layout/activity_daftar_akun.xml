@@ -25,7 +25,6 @@
                 android:editable="false"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:hint="No NIK"
                 android:background="@drawable/edittext_login"
                 android:layout_marginBottom="10dp"
                 android:inputType="number"/>
@@ -41,7 +40,6 @@
                 android:layout_height="40dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:hint="Nama Lengkap"
                 android:background="@drawable/edittext_login"
                 android:layout_marginBottom="10dp"/>
 
@@ -56,7 +54,6 @@
                 android:layout_height="40dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:hint="Tanggal Lahir"
                 android:background="@drawable/edittext_login"
                 android:layout_marginBottom="10dp"/>
 
@@ -84,7 +81,6 @@
                 android:layout_height="40dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:hint="No.Telephone"
                 android:background="@drawable/edittext_login"
                 android:layout_marginBottom="15dp"
                 android:inputType="number"/>

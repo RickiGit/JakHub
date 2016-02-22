@@ -2,10 +2,12 @@ package com.altrovis.jakhub;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -64,24 +66,51 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         buttonDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String noNIK = editTextNIK.getText().toString();
-                String namaLengkap = editTextNamaLengkap.getText().toString();
-                String tanggalLahir = editTextTanggalLahir.getText().toString();
-                String noTelepon = editTextNoTelepon.getText().toString();
 
                 SharedPreferences.Editor editor = getSharedPreferences(
                         "login", Context.MODE_PRIVATE).edit();
                 editor.putString("nik", noNIK);
                 editor.putString("nama", namaLengkap);
-                editor.putString("tempatLahir","Parung Jawa Barat");
+                
                 editor.putString("tanggalLahir", tanggalLahir);
-                editor.putString("alamat", "Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan");
+                
                 editor.putString("noTelepon", noTelepon);
                 editor.commit();
+                final ProgressDialog progress = new ProgressDialog(v.getContext());
+                progress.setMessage("Mengirim data...");
+                progress.setCancelable(false);
+                progress.setIndeterminate(true);
+                progress.show();
 
-                Intent intent = new Intent(ActivityDaftarAkun.this, ActivityAktivasi.class);
-                intent.putExtra("noNIK", noNIK);
-                startActivity(intent);
+                Runnable progressRunnable = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        String noNIK = editTextNIK.getText().toString();
+                        String namaLengkap = editTextNamaLengkap.getText().toString();
+                        String tanggalLahir = editTextTanggalLahir.getText().toString();
+                        String noTelepon = editTextNoTelepon.getText().toString();
+
+                        SharedPreferences.Editor editor = getSharedPreferences(
+                                "login", Context.MODE_PRIVATE).edit();
+                        editor.putString("nik", noNIK);
+                        editor.putString("nama", namaLengkap);
+                        editor.putString("tempatLahir","Parung Jawa Barat");
+                        editor.putString("tanggalLahir", tanggalLahir);
+                        editor.putString("alamat", "Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan");
+                        editor.putString("noTelepon", noTelepon);
+                        editor.commit();
+
+                        Intent intent = new Intent(ActivityDaftarAkun.this, ActivityAktivasi.class);
+                        intent.putExtra("noNIK", noNIK);
+                        startActivity(intent);
+
+                        progress.cancel();
+                    }
+                };
+
+                Handler pdCanceller = new Handler();
+                pdCanceller.postDelayed(progressRunnable, 2000);
             }
         });
     }
