@@ -11,7 +11,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berikut adalah data Anda:"
+            android:text="Konfirmasi Perpanjangan KTP ID 320.KTP.002183948"
             android:textSize="26dp"
             android:layout_marginBottom="5dp"/>
 
@@ -22,153 +22,183 @@
             android:text="Minggu, 22 Juli 2016 23.25"
             android:layout_marginBottom="25dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Berikut adalah data Anda:"
-            android:textSize="16dp"
-            android:layout_marginBottom="25dp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_login"
-            android:layout_marginBottom="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="320.KTP.002183948"
-                android:textSize="26dp"
-                android:layout_centerInParent="true"
-                android:padding="10dp"
-                android:textColor="#FFFFFF"
-                android:layout_marginBottom="5dp"/>
-        </RelativeLayout>
+                android:text="No proses Anda adalah:"
+                android:textSize="16dp"
+                android:layout_marginBottom="25dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_login"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="320.KTP.002183948"
+                    android:textSize="26dp"
+                    android:layout_centerInParent="true"
+                    android:padding="10dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="5dp"/>
+            </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berikut adalah data Anda:"
+            android:text="Anda dapat mendatangi kelurahan pada:"
             android:textSize="16dp"
-            android:layout_marginBottom="25dp"/>
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="25dp"/>
 
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <TableRow
-                android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="25dp">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp">
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="Tanggal"
+                    android:text="Tangal"
                     android:textSize="15dp"></TextView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=":"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:text=":"
                     android:textSize="15dp"></TextView>
+
                 <TextView
+                    android:id="@+id/TextViewTanggal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Suryo Sunyoto"
+                    android:text="19 Agustus 2016"
                     android:textSize="15dp"></TextView>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp">
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Waktu"
                     android:textSize="15dp"></TextView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=":"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:text=":"
                     android:textSize="15dp"></TextView>
+
                 <TextView
+                    android:id="@+id/TextViewTempatLahir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Parung Jawa Barat"
+                    android:text="09.00 - 12.00"
                     android:textSize="15dp"></TextView>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp">
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Alamat"
                     android:textSize="15dp"></TextView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=":"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:text=":"
                     android:textSize="15dp"></TextView>
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/TextViewAlamat"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="none"
                     android:maxLines="5"
-                    android:text="Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan"
+                    android:singleLine="false"
+                    android:text="Jalan Mampang Prapatan X No .9 Mampang, Jakarta Selatan"
                     android:textSize="15dp"></TextView>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp">
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Nomor Telepon"
                     android:textSize="15dp"></TextView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=":"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:text=":"
                     android:textSize="15dp"></TextView>
+
                 <TextView
+                    android:id="@+id/TextViewNoTelepon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="5"
-                    android:text="085311112222"
+                    android:text="021 - 2394803"
                     android:textSize="15dp"></TextView>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp">
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Biaya-biaya"
                     android:textSize="15dp"></TextView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=":"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:text=":"
                     android:textSize="15dp"></TextView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="5"
-                    android:textStyle="bold"
                     android:text="GRATIS"
-                    android:textSize="15dp"></TextView>
-            </TableRow>
-        </TableLayout>
+                    android:textSize="15dp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

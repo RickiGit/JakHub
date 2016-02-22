@@ -22,5 +22,6 @@ public class GlobalVariable {
     public static String tanggalPicker = "";
     public static String tanggalPelayanan = "";
     public static EditText editTextTanggal;
+    public static PerpanjangKTP selectedPerpanjangKTP;
 
 }

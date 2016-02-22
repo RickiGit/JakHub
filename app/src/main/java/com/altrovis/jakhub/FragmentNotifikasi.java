@@ -7,17 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link FragmentNotifikasi.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link FragmentNotifikasi#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentNotifikasi extends Fragment {
+
     public FragmentNotifikasi() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -28,7 +21,10 @@ public class FragmentNotifikasi extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notifikasi, container, false);
+        View view = inflater.inflate(R.layout.fragment_notifikasi, container, false);
+
+
+
+        return view;
     }
 }
