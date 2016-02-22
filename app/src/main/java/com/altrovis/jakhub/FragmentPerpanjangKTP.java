@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -77,26 +78,30 @@ public class FragmentPerpanjangKTP extends Fragment {
         GlobalVariable.editTextTanggal = (EditText) view.findViewById(R.id.EditTextTanggal);
         GlobalVariable.editTextTanggal.setInputType(InputType.TYPE_NULL);
 
-        GlobalVariable.editTextTanggal.setOnClickListener(new View.OnClickListener() {
+        GlobalVariable.editTextTanggal.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(), "DatePicker");
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    DialogFragment newFragment = new DatePickerFragment();
+                    newFragment.show(getFragmentManager(), "DatePicker");
+                }
+
+                return false;
             }
         });
 
         return view;
     }
 
-    private void SetTextView(View rootView){
+    private void SetTextView(View rootView) {
 
         TextView textViewNamaLengkap = (TextView) rootView.findViewById(R.id.TextViewNamaLengkap);
         TextView textViewTanggalLahir = (TextView) rootView.findViewById(R.id.TextViewTanggalLahir);
         TextView textViewNoTelepon = (TextView) rootView.findViewById(R.id.TextViewNoTelepon);
 
         SharedPreferences login = getActivity().getSharedPreferences("login", getActivity().MODE_PRIVATE);
-        nik = login.getString("nik","");
-        textViewNamaLengkap.setText(login.getString("nama",""));
+        nik = login.getString("nik", "");
+        textViewNamaLengkap.setText(login.getString("nama", ""));
         textViewTanggalLahir.setText(login.getString("tanggalLahir", ""));
         textViewNoTelepon.setText(login.getString("noTelepon", ""));
 
