@@ -29,7 +29,7 @@ public class ActivityAktivasi extends AppCompatActivity {
         inisialisasiLayout();
         editTextNIK.setText(noNIK);
 
-        final Context activityContext = this.getBaseContext();
+        final Context activityContext = this;
 
         final ProgressDialog progress = new ProgressDialog(activityContext);
         progress.setMessage("Menunggu kode aktivasi...");
