@@ -1,25 +1,21 @@
 package com.altrovis.jakhub;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.util.Calendar;
-
 public class FragmentPerpanjangKTP extends Fragment {
 
-    int years, month, day;
-    static final int DIALOG_TANGGAL = 0;
     EditText editTextTanggal;
 
     public FragmentPerpanjangKTP() {
@@ -71,24 +67,25 @@ public class FragmentPerpanjangKTP extends Fragment {
             }
         });
 
-        Calendar calender = Calendar.getInstance();
-        years = calender.get(Calendar.YEAR);
-        month = calender.get(Calendar.MONTH);
-        day = calender.get(Calendar.DAY_OF_MONTH);
-
-        editTextTanggal = (EditText) getActivity().findViewById(R.id.EditTextTanggal);
+        editTextTanggal = (EditText) view.findViewById(R.id.EditTextTanggal);
+        editTextTanggal.setInputType(InputType.TYPE_NULL);
+        editTextTanggal.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    DialogFragment newFragment = new DatePickerFragment();
+                    newFragment.show(getFragmentManager(), "DatePicker");
+                }
+            }
+        });
+        editTextTanggal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new DatePickerFragment();
+                newFragment.show(getFragmentManager(), "DatePicker");
+            }
+        });
 
         return view;
     }
-
-    private DatePickerDialog.OnDateSetListener datePickerTanggalDatang = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            years = year;
-            month = monthOfYear + 1;
-            day = dayOfMonth;
-
-            editTextTanggal.setText(day + "/" + month + "/" + year);
-        }
-    };
 }
