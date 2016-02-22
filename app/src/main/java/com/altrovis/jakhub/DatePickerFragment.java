@@ -12,6 +12,7 @@ import java.util.Calendar;
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
+    String tanggal;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -31,6 +32,12 @@ public class DatePickerFragment extends DialogFragment
         c.set(year, month, day);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = sdf.format(c.getTime());
+        tanggal = sdf.format(c.getTime());
+    }
+
+    public String setTanggal(DatePicker view, int year, int month, int day)
+    {
+        onDateSet(view, year, month, day);
+        return tanggal;
     }
 }

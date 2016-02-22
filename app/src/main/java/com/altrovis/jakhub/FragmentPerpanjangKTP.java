@@ -69,18 +69,11 @@ public class FragmentPerpanjangKTP extends Fragment {
 
         editTextTanggal = (EditText) view.findViewById(R.id.EditTextTanggal);
         editTextTanggal.setInputType(InputType.TYPE_NULL);
-        editTextTanggal.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    DialogFragment newFragment = new DatePickerFragment();
-                    newFragment.show(getFragmentManager(), "DatePicker");
-                }
-            }
-        });
+
         editTextTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DatePickerFragment tanggalFragment = new DatePickerFragment();
                 DialogFragment newFragment = new DatePickerFragment();
                 newFragment.show(getFragmentManager(), "DatePicker");
             }
