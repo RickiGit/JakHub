@@ -2,8 +2,12 @@ package com.altrovis.jakhub;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -19,7 +23,8 @@ import java.util.Calendar;
 public class ActivityDaftarAkun extends AppCompatActivity {
 
     Button buttonDaftar;
-    EditText editTextTanggalLahir, editTextNIK;
+    EditText editTextTanggalLahir, editTextNIK,
+            editTextNamaLengkap, editTextNoTelepon;
     Spinner spinnerJK;
     int years, month, day;
     static final int DIALOG_TANGGAL_LAHIR = 0;
@@ -51,6 +56,8 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         buttonDaftar = (Button)findViewById(R.id.ButtonDaftar);
         editTextTanggalLahir = (EditText)findViewById(R.id.EditTextTanggalLahir);
         editTextNIK = (EditText)findViewById(R.id.EditTextNIK);
+        editTextNamaLengkap = (EditText) findViewById(R.id.EditTextNamaLengkap);
+        editTextNoTelepon = (EditText) findViewById(R.id.EditTextNoTelepon);
         spinnerJK = (Spinner)findViewById(R.id.SpinnerJenisKelamin);
     }
 
@@ -59,10 +66,51 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         buttonDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String noNIK = editTextNIK.getText().toString();
-                Intent intent = new Intent(ActivityDaftarAkun.this, ActivityAktivasi.class);
-                intent.putExtra("noNIK", noNIK);
-                startActivity(intent);
+
+                SharedPreferences.Editor editor = getSharedPreferences(
+                        "login", Context.MODE_PRIVATE).edit();
+                editor.putString("nik", noNIK);
+                editor.putString("nama", namaLengkap);
+                
+                editor.putString("tanggalLahir", tanggalLahir);
+                
+                editor.putString("noTelepon", noTelepon);
+                editor.commit();
+                final ProgressDialog progress = new ProgressDialog(v.getContext());
+                progress.setMessage("Mengirim data...");
+                progress.setCancelable(false);
+                progress.setIndeterminate(true);
+                progress.show();
+
+                Runnable progressRunnable = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        String noNIK = editTextNIK.getText().toString();
+                        String namaLengkap = editTextNamaLengkap.getText().toString();
+                        String tanggalLahir = editTextTanggalLahir.getText().toString();
+                        String noTelepon = editTextNoTelepon.getText().toString();
+
+                        SharedPreferences.Editor editor = getSharedPreferences(
+                                "login", Context.MODE_PRIVATE).edit();
+                        editor.putString("nik", noNIK);
+                        editor.putString("nama", namaLengkap);
+                        editor.putString("tempatLahir","Parung Jawa Barat");
+                        editor.putString("tanggalLahir", tanggalLahir);
+                        editor.putString("alamat", "Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan");
+                        editor.putString("noTelepon", noTelepon);
+                        editor.commit();
+
+                        Intent intent = new Intent(ActivityDaftarAkun.this, ActivityAktivasi.class);
+                        intent.putExtra("noNIK", noNIK);
+                        startActivity(intent);
+
+                        progress.cancel();
+                    }
+                };
+
+                Handler pdCanceller = new Handler();
+                pdCanceller.postDelayed(progressRunnable, 2000);
             }
         });
     }

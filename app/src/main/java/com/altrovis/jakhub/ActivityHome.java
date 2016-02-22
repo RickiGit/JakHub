@@ -1,6 +1,7 @@
 package com.altrovis.jakhub;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.altrovis.jakhub.Business.AddPerpanjangKTPAsyncTask;
+import com.altrovis.jakhub.Entities.GlobalVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,43 +71,48 @@ public class ActivityHome extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentLayanan(), "Layanan");
-        adapter.addFragment(new FragmentInformasi(), "Informasi");
-        adapter.addFragment(new FragmentNotifikasi(), "Notifikasi");
         viewPager.setAdapter(adapter);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
 
         @Override
         public Fragment getItem(int position) {
-            return mFragmentList.get(position);
+            if (position == 0) {
+                return new FragmentLayanan();
+            } else if (position == 1) {
+                return new FragmentInformasi();
+            } else if (position == 2) {
+                return new FragmentNotifikasi();
+            }
+
+            return null;
         }
 
         @Override
         public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+
+            if (position == 0) {
+                return "Layanan";
+            } else if (position == 1) {
+                return "Informasi";
+            } else if (position == 2) {
+                return "Notifikasi";
+            }
+
+            return null;
         }
     }
 
-    public void backToMenu(View v)
-    {
+    public void backToMenu(View v) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         //kosongkan fragment navigation backstack
         while (fragmentManager.popBackStackImmediate()) {
@@ -153,5 +162,15 @@ public class ActivityHome extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void AddPerpanjangKTPtoWebService(View ev){
+
+        SharedPreferences login = getSharedPreferences("login", MODE_PRIVATE);
+        String nik = login.getString("nik", "");
+        String tanggal = GlobalVariable.tanggalPelayanan;
+
+        new AddPerpanjangKTPAsyncTask(this, nik, tanggal).execute();
+
     }
 }

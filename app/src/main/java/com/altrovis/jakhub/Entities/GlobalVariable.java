@@ -20,6 +20,7 @@ public class GlobalVariable {
     public static User user = new User();
 
     public static String tanggalPicker = "";
+    public static String tanggalPelayanan = "";
     public static EditText editTextTanggal;
 
 }

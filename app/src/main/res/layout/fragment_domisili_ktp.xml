@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berikut adalah data anda :"
+            android:text="Berikut adalah data Anda:"
             android:textSize="16dp"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="25dp"
@@ -71,6 +71,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
+                    android:id="@+id/TextViewNamaLengkap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Suryo Sunyoto"
@@ -97,6 +98,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
+                    android:id="@+id/TextViewTempatLahir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Parung Jawa Barat"
@@ -123,6 +125,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
+                    android:id="@+id/TextViewTanggalLahir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="19 Agustus 1972"
@@ -149,6 +152,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
+                    android:id="@+id/TextViewAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="none"
@@ -178,6 +182,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
+                    android:id="@+id/TextViewNoTelepon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="5"

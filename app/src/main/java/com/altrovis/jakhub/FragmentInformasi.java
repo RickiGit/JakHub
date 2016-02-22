@@ -26,7 +26,7 @@ public class FragmentInformasi extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_layanan, container, false);
+        View view = inflater.inflate(R.layout.fragment_informasi, container, false);
 
         GridView gridView = (GridView) view.findViewById(R.id.GridViewMenu);
         final ArrayList<ItemMenu> listOfMenu = new ArrayList<ItemMenu>();
