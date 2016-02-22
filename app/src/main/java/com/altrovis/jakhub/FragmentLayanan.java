@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class FragmentLayanan extends Fragment  {
 
     public FragmentLayanan() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -30,7 +30,7 @@ public class FragmentLayanan extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         final View view = inflater.inflate(R.layout.fragment_layanan, container, false);
 
         GridView gridView = (GridView) view.findViewById(R.id.GridViewMenu);

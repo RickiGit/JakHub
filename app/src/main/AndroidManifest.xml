@@ -16,14 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityHome" />
-        <activity
-            android:name=".ActivityKK"
-            android:parentActivityName=".ActivityHome"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ActivityPerpanjangKTP"
-            android:parentActivityName=".ActivityHome"
-            android:theme="@style/AppTheme" />
         <activity android:name=".ActivityDetailNotifikasi"></activity>
     </application>
 
