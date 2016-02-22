@@ -66,12 +66,16 @@ public class FragmentDomisiliKTP extends Fragment {
     private void SetTextView(View rootView){
 
         TextView textViewNamaLengkap = (TextView) rootView.findViewById(R.id.TextViewNamaLengkap);
+        TextView textViewTempatLahir = (TextView) rootView.findViewById(R.id.TextViewTempatLahir);
         TextView textViewTanggalLahir = (TextView) rootView.findViewById(R.id.TextViewTanggalLahir);
+        TextView textViewAlamat = (TextView) rootView.findViewById(R.id.TextViewAlamat);
         TextView textViewNoTelepon = (TextView) rootView.findViewById(R.id.TextViewNoTelepon);
 
         SharedPreferences login = getActivity().getSharedPreferences("login", getActivity().MODE_PRIVATE);
         textViewNamaLengkap.setText(login.getString("nama",""));
+        textViewTempatLahir.setText(login.getString("tempatLahir",""));
         textViewTanggalLahir.setText(login.getString("tanggalLahir",""));
+        textViewAlamat.setText(login.getString("alamat",""));
         textViewNoTelepon.setText(login.getString("noTelepon",""));
 
     }

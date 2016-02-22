@@ -67,6 +67,15 @@ public class ActivityDaftarAkun extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SharedPreferences.Editor editor = getSharedPreferences(
+                        "login", Context.MODE_PRIVATE).edit();
+                editor.putString("nik", noNIK);
+                editor.putString("nama", namaLengkap);
+                
+                editor.putString("tanggalLahir", tanggalLahir);
+                
+                editor.putString("noTelepon", noTelepon);
+                editor.commit();
                 final ProgressDialog progress = new ProgressDialog(v.getContext());
                 progress.setMessage("Mengirim data...");
                 progress.setCancelable(false);
@@ -86,7 +95,9 @@ public class ActivityDaftarAkun extends AppCompatActivity {
                                 "login", Context.MODE_PRIVATE).edit();
                         editor.putString("nik", noNIK);
                         editor.putString("nama", namaLengkap);
+                        editor.putString("tempatLahir","Parung Jawa Barat");
                         editor.putString("tanggalLahir", tanggalLahir);
+                        editor.putString("alamat", "Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan");
                         editor.putString("noTelepon", noTelepon);
                         editor.commit();
 

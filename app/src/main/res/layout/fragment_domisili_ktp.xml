@@ -98,6 +98,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
+                    android:id="@+id/TextViewTempatLahir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Parung Jawa Barat"
@@ -151,6 +152,7 @@
                     android:textSize="15dp"></TextView>
 
                 <TextView
+                    android:id="@+id/TextViewAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="none"
