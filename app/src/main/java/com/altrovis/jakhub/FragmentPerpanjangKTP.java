@@ -56,14 +56,8 @@ public class FragmentPerpanjangKTP extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 if (position == 0) {
-                    FragmentDomisiliKTP newFragment = new FragmentDomisiliKTP();
-
-                    //untuk melakukan navigasi fragment, gunakan implementasi berikut ini:
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.LinearLayoutFragmentDomisili, newFragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+                    fragmentManager.popBackStack();
                 }
 
             }
