@@ -73,7 +73,9 @@ public class ActivityDaftarAkun extends AppCompatActivity {
                         "login", Context.MODE_PRIVATE).edit();
                 editor.putString("nik", noNIK);
                 editor.putString("nama", namaLengkap);
+                editor.putString("tempatLahir","Parung Jawa Barat");
                 editor.putString("tanggalLahir", tanggalLahir);
+                editor.putString("alamat", "Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan");
                 editor.putString("noTelepon", noTelepon);
                 editor.commit();
 

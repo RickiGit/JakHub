@@ -1,6 +1,7 @@
 package com.altrovis.jakhub;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.altrovis.jakhub.Business.AddPerpanjangKTPAsyncTask;
+import com.altrovis.jakhub.Entities.GlobalVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -150,5 +154,15 @@ public class ActivityHome extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void AddPerpanjangKTPtoWebService(View ev){
+
+        SharedPreferences login = getSharedPreferences("login", MODE_PRIVATE);
+        String nik = login.getString("nik", "");
+        String tanggal = GlobalVariable.tanggalPelayanan;
+
+        new AddPerpanjangKTPAsyncTask(this, nik, tanggal).execute();
+
     }
 }

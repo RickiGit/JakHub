@@ -20,9 +20,6 @@ import com.altrovis.jakhub.Entities.GlobalVariable;
 
 public class FragmentPerpanjangKTP extends Fragment {
 
-    EditText editTextTanggal;
-    String nik;
-
     public FragmentPerpanjangKTP() {
         // Required empty public constructor
     }
@@ -91,14 +88,17 @@ public class FragmentPerpanjangKTP extends Fragment {
     private void SetTextView(View rootView){
 
         TextView textViewNamaLengkap = (TextView) rootView.findViewById(R.id.TextViewNamaLengkap);
+        TextView textViewTempatLahir = (TextView) rootView.findViewById(R.id.TextViewTempatLahir);
         TextView textViewTanggalLahir = (TextView) rootView.findViewById(R.id.TextViewTanggalLahir);
+        TextView textViewAlamat = (TextView) rootView.findViewById(R.id.TextViewAlamat);
         TextView textViewNoTelepon = (TextView) rootView.findViewById(R.id.TextViewNoTelepon);
 
         SharedPreferences login = getActivity().getSharedPreferences("login", getActivity().MODE_PRIVATE);
-        nik = login.getString("nik","");
         textViewNamaLengkap.setText(login.getString("nama",""));
-        textViewTanggalLahir.setText(login.getString("tanggalLahir", ""));
-        textViewNoTelepon.setText(login.getString("noTelepon", ""));
+        textViewTempatLahir.setText(login.getString("tempatLahir",""));
+        textViewTanggalLahir.setText(login.getString("tanggalLahir",""));
+        textViewAlamat.setText(login.getString("alamat",""));
+        textViewNoTelepon.setText(login.getString("noTelepon",""));
 
     }
 

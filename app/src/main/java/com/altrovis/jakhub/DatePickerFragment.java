@@ -35,7 +35,7 @@ public class DatePickerFragment extends DialogFragment
         String tanggal = sdf.format(c.getTime());
         GlobalVariable.editTextTanggal.setText(tanggal);
 
-        sdf = new SimpleDateFormat("yyyyMMdd");
+        sdf = new SimpleDateFormat("dd MM yyyy");
         tanggal = sdf.format(c.getTime());
         GlobalVariable.tanggalPelayanan = tanggal;
     }

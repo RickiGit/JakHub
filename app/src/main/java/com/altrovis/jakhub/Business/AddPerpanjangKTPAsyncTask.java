@@ -1,13 +1,19 @@
 package com.altrovis.jakhub.Business;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.altrovis.jakhub.Entities.GlobalVariable;
+import com.altrovis.jakhub.R;
 
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * Created by Wisnu on 22/02/2016.
@@ -24,13 +30,17 @@ public class AddPerpanjangKTPAsyncTask extends AsyncTask<Void, Void, JSONObject>
     private String WaktuPelayanan;
 
     private ProgressDialog progressDialog;
-    private Context context;
+    private AppCompatActivity context;
     private String errorMessage = "";
 
-    public AddPerpanjangKTPAsyncTask(Context context, String NIK, String WaktuPelayanan) {
+    public AddPerpanjangKTPAsyncTask(AppCompatActivity context, String NIK, String WaktuPelayanan) {
 
         this.NIK = NIK;
-        this.WaktuPelayanan = WaktuPelayanan;
+        try {
+            this.WaktuPelayanan = URLEncoder.encode(WaktuPelayanan, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         urlComplete = urlWebService.concat(param1).concat(this.NIK).concat(param2).concat(this.WaktuPelayanan);
 
@@ -55,7 +65,7 @@ public class AddPerpanjangKTPAsyncTask extends AsyncTask<Void, Void, JSONObject>
         try {
             return GlobalFunction.GetJSONObject(urlComplete);
         } catch (Exception e) {
-            e.printStackTrace();
+            errorMessage = e.getMessage();
         }
 
         return null;
@@ -73,6 +83,12 @@ public class AddPerpanjangKTPAsyncTask extends AsyncTask<Void, Void, JSONObject>
         } else {
             try {
                 Boolean isSuccessful = result.getBoolean("IsSuccessful");
+
+                FragmentManager fragmentManager = context.getSupportFragmentManager();
+                while (fragmentManager.popBackStackImmediate()) {}
+                RelativeLayout mainContainer = (RelativeLayout) context.findViewById(R.id.RelativeLayoutGridViewMenu);
+                mainContainer.setVisibility(RelativeLayout.VISIBLE);
+
                 if (isSuccessful) {
                     Toast.makeText(context, "Data Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
                 } else {
