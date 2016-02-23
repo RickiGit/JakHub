@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/TextViewJudul"
             android:text="22 April 2016 23:00"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-5dp"
+            android:paddingBottom="15dp"/>
     </RelativeLayout>
 </LinearLayout>

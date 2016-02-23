@@ -2,6 +2,7 @@
     <string name="app_name">Jakhub</string>
     <string name="daftar">Daftar</string>
     <string name="aktivasi">Aktivasi</string>
+    <string name="detail_notifikasi">Detail Notifikasi</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -16,10 +17,6 @@
         <item>Laki-Laki</item>
         <item>Perempuan</item>
     </string-array>
-    <string name="title_activity_test_drawer">TestDrawerActivity</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
 </resources>

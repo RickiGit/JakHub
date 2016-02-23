@@ -31,10 +31,11 @@
             android:id="@+id/SpinnerKTP"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@drawable/edittext_login"
+            android:background="@drawable/spinner_custom"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"></Spinner>
+            android:layout_marginRight="25dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
