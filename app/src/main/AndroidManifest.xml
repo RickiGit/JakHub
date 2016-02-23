@@ -22,7 +22,10 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ActivityDetailNotifikasi"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:label="@string/detail_notifikasi"
+            android:parentActivityName=".ActivityHome"/>
         <activity
             android:name=".ActivityDaftarAkun"
             android:label="@string/daftar"
