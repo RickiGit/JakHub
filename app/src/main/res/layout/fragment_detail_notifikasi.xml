@@ -75,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="320.KTP.002183948"
-                    android:textSize="26dp"
+                    android:textSize="20dp"
                     android:layout_centerInParent="true"
                     android:padding="10dp"
                     android:textColor="#FFFFFF"
