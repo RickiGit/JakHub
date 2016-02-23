@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     tools:context="com.altrovis.jakhub.FragmentNotifikasi">
 
-    <ListView
-        android:id="@+id/ListVieNotifikasi"
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutListViewNotifikasi"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/ListVieNotifikasi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/LinearLayoutFragmentNotifikasi"

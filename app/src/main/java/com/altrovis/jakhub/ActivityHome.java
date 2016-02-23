@@ -119,6 +119,16 @@ public class ActivityHome extends AppCompatActivity {
         mainContainer.setVisibility(RelativeLayout.VISIBLE);
     }
 
+    public void backToMenuNotifikasi(View v) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        //kosongkan fragment navigation backstack
+        while (fragmentManager.popBackStackImmediate()) {
+        }
+        //apabila fragment navigation backstack sudah kosong maka munculkan tampilan utama
+        RelativeLayout mainContainer = (RelativeLayout) findViewById(R.id.RelativeLayoutListViewNotifikasi);
+        mainContainer.setVisibility(RelativeLayout.VISIBLE);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

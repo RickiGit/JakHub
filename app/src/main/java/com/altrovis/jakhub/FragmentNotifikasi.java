@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.altrovis.jakhub.Business.GetAllPerpanjangKTPAsyncTask;
 import com.altrovis.jakhub.Business.Notifikasi.NotifikasiAdapter;
@@ -45,7 +46,11 @@ public class FragmentNotifikasi extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 GlobalVariable.selectedPerpanjangKTP = GlobalVariable.listPerpanjangKTP.get(position);
 
-                FragmentPerpanjangKTP newFragment = new FragmentPerpanjangKTP();
+                RelativeLayout mainContainer = (RelativeLayout)
+                        getActivity().findViewById(R.id.RelativeLayoutListViewNotifikasi);
+                mainContainer.setVisibility(RelativeLayout.GONE);
+
+                FragmentDetailNotifikasi newFragment = new FragmentDetailNotifikasi();
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
