@@ -1,9 +1,10 @@
 package com.altrovis.jakhub;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +45,14 @@ public class FragmentNotifikasi extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 GlobalVariable.selectedPerpanjangKTP = GlobalVariable.listPerpanjangKTP.get(position);
 
-                Intent intentDetailBerita = new Intent(view.getContext(), ActivityDetailNotifikasi.class);
-                startActivityForResult(intentDetailBerita, 0);
+                FragmentPerpanjangKTP newFragment = new FragmentPerpanjangKTP();
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.LinearLayoutFragmentNotifikasi, newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
 
             }
         });

@@ -22,9 +22,6 @@ import android.widget.RelativeLayout;
 import com.altrovis.jakhub.Business.AddPerpanjangKTPAsyncTask;
 import com.altrovis.jakhub.Entities.GlobalVariable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class ActivityHome extends AppCompatActivity {
 
@@ -151,12 +148,9 @@ public class ActivityHome extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.menuKeluar) {
             Intent intent = new Intent(ActivityHome.this, ActivityMain.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
