@@ -1,5 +1,7 @@
 package com.altrovis.jakhub;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -57,7 +59,10 @@ public class FragmentDetailNotifikasi extends Fragment {
         textViewPeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?" +
+                        "&daddr=" + -6.2489461 + "," + 106.8256766));
+                intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+                startActivity(intent);
             }
         });
 
