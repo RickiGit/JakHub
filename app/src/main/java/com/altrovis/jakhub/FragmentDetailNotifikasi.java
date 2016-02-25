@@ -39,6 +39,7 @@ public class FragmentDetailNotifikasi extends Fragment {
         TextView textViewJudul = (TextView) view.findViewById(R.id.TextViewJudul);
         TextView textViewTanggal = (TextView) view.findViewById(R.id.TextViewTanggal);
         TextView textViewNoReferensi = (TextView) view.findViewById(R.id.TextViewNoReferensi);
+        TextView textViewPeta = (TextView) view.findViewById(R.id.TextViewMap);
 
         String judul = "Konfirmasi Perpanjangan KTP ID ";
         PerpanjangKTP perpanjangKTP = GlobalVariable.selectedPerpanjangKTP;
@@ -52,6 +53,13 @@ public class FragmentDetailNotifikasi extends Fragment {
         DateFormat formatter = new SimpleDateFormat("EEEE, dd MMMM yyyy", new Locale("id", "ID"));
         String tanggal = formatter.format(created);
         textViewTanggal.setText(tanggal);
+
+        textViewPeta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
