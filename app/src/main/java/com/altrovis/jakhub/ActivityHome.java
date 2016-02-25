@@ -157,7 +157,7 @@ public class ActivityHome extends AppCompatActivity {
     public void AddPerpanjangKTPtoWebService(View ev) {
 
         SharedPreferences login = getSharedPreferences("login", MODE_PRIVATE);
-        String nik = login.getString("nik", "");
+        String nik = login.getString("kk", "");
         String tanggal = GlobalVariable.tanggalPelayanan;
 
         new AddPerpanjangKTPAsyncTask(this, nik, tanggal).execute();

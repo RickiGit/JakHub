@@ -73,7 +73,7 @@ public class ActivityDaftarAkun extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = getSharedPreferences(
                         "login", Context.MODE_PRIVATE).edit();
-                editor.putString("nik", noNIK);
+                //editor.putString("nik", noKK);
                 editor.putString("nama", "Pevita");
                 editor.putString("nik", noNIK);
                 editor.putString("kk", noKK);

@@ -63,7 +63,7 @@ public class FragmentNotifikasi extends Fragment {
         });
 
         SharedPreferences login = getActivity().getSharedPreferences("login", getActivity().MODE_PRIVATE);
-        String nik = login.getString("nik","");
+        String nik = login.getString("kk","");
 
         new GetAllPerpanjangKTPAsyncTask(getActivity(), nik, adapter).execute();
 
