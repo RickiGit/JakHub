@@ -9,7 +9,7 @@
 
     <string-array name="spinnerKTP">
         <item>Domisili Individu</item>
-        <item>Perpanjang KTP</item>
+        <item>Penerbitan KTP</item>
     </string-array>
 
     <string-array name="spinerJenisKelamin">

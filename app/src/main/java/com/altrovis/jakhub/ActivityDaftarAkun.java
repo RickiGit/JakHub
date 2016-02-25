@@ -12,7 +12,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -24,7 +23,7 @@ public class ActivityDaftarAkun extends AppCompatActivity {
 
     Button buttonDaftar;
     EditText editTextTanggalLahir, editTextNIK,
-            editTextNamaLengkap, editTextNoTelepon;
+            editTextKK, editTextNoTelepon;
     Spinner spinnerJK;
     int years, month, day;
     static final int DIALOG_TANGGAL_LAHIR = 0;
@@ -48,7 +47,7 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         inisialisasiLayout();
         goToAktivasi();
         showDialogTanggalLahir();
-        setSpinnerJenisKelamin();
+        //setSpinnerJenisKelamin();
     }
 
     public void inisialisasiLayout()
@@ -56,9 +55,9 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         buttonDaftar = (Button)findViewById(R.id.ButtonDaftar);
         editTextTanggalLahir = (EditText)findViewById(R.id.EditTextTanggalLahir);
         editTextNIK = (EditText)findViewById(R.id.EditTextNIK);
-        editTextNamaLengkap = (EditText) findViewById(R.id.EditTextNamaLengkap);
+        editTextKK = (EditText) findViewById(R.id.EditTextKK);
         editTextNoTelepon = (EditText) findViewById(R.id.EditTextNoTelepon);
-        spinnerJK = (Spinner)findViewById(R.id.SpinnerJenisKelamin);
+        //spinnerJK = (Spinner)findViewById(R.id.SpinnerJenisKelamin);
     }
 
     public void goToAktivasi()
@@ -68,14 +67,16 @@ public class ActivityDaftarAkun extends AppCompatActivity {
             public void onClick(View v) {
 
                 String noNIK = editTextNIK.getText().toString();
-                String namaLengkap = editTextNamaLengkap.getText().toString();
+                String noKK = editTextKK.getText().toString();
                 String tanggalLahir = editTextTanggalLahir.getText().toString();
                 String noTelepon = editTextNoTelepon.getText().toString();
 
                 SharedPreferences.Editor editor = getSharedPreferences(
                         "login", Context.MODE_PRIVATE).edit();
                 editor.putString("nik", noNIK);
-                editor.putString("nama", namaLengkap);
+                editor.putString("nama", "Pevita");
+                editor.putString("nik", noNIK);
+                editor.putString("kk", noKK);
                 editor.putString("tempatLahir","Parung Jawa Barat");
                 editor.putString("tanggalLahir", tanggalLahir);
                 editor.putString("alamat", "Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan");
@@ -93,14 +94,15 @@ public class ActivityDaftarAkun extends AppCompatActivity {
                     @Override
                     public void run() {
                         String noNIK = editTextNIK.getText().toString();
-                        String namaLengkap = editTextNamaLengkap.getText().toString();
+                        String noKK = editTextKK.getText().toString();
                         String tanggalLahir = editTextTanggalLahir.getText().toString();
                         String noTelepon = editTextNoTelepon.getText().toString();
 
                         SharedPreferences.Editor editor = getSharedPreferences(
                                 "login", Context.MODE_PRIVATE).edit();
                         editor.putString("nik", noNIK);
-                        editor.putString("nama", namaLengkap);
+                        editor.putString("nama", "Pevita");
+                        editor.putString("kk", noKK);
                         editor.putString("tempatLahir","Parung Jawa Barat");
                         editor.putString("tanggalLahir", tanggalLahir);
                         editor.putString("alamat", "Jalan Mampang Prapatan XIV No .99 Mampang, Jakarta Selatan");
@@ -121,13 +123,13 @@ public class ActivityDaftarAkun extends AppCompatActivity {
         });
     }
 
-    public void setSpinnerJenisKelamin()
-    {
-        String[] listSpinner = getResources().getStringArray(R.array.spinerJenisKelamin);
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listSpinner);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerJK.setAdapter(dataAdapter);
-    }
+//    public void setSpinnerJenisKelamin()
+//    {
+//        String[] listSpinner = getResources().getStringArray(R.array.spinerJenisKelamin);
+//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listSpinner);
+//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerJK.setAdapter(dataAdapter);
+//    }
 
     @Override
     protected Dialog onCreateDialog(int id) {

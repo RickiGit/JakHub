@@ -11,12 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.altrovis.jakhub.Business.AddPerpanjangKTPAsyncTask;
@@ -37,26 +35,11 @@ public class ActivityHome extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDefaultDisplayHomeAsUpEnabled(false);
             actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(false);
             actionBar.setTitle("");
-
-            actionBar.setDisplayOptions(actionBar.getDisplayOptions()
-                    | ActionBar.DISPLAY_SHOW_CUSTOM);
-            ImageView imageView = new ImageView(actionBar.getThemedContext());
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            imageView.setImageResource(R.drawable.icon);
-            ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(
-                    ActionBar.LayoutParams.WRAP_CONTENT,
-                    ActionBar.LayoutParams.WRAP_CONTENT, Gravity.RIGHT
-                    | Gravity.CENTER_VERTICAL);
-            layoutParams.rightMargin = 40;
-            imageView.requestLayout();
-            imageView.setLayoutParams(layoutParams);
-            actionBar.setCustomView(imageView);
         }
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);

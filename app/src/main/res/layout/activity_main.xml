@@ -3,8 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#111111"
     tools:context="com.altrovis.jakhub.ActivityMain">
+
+    <ImageView
+        android:id="@+id/ImageViewSlide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/background"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,12 +30,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="230dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/logo"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
+                    android:src="@drawable/logo_app"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="2dp"/>
                 <EditText
+                    android:id="@+id/TextViewNoKTP"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:paddingLeft="15dp"
@@ -40,6 +48,7 @@
                     android:inputType="number"
                     android:background="@drawable/edittext_login"/>
                 <EditText
+                    android:id="@+id/TextViewPIN"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:paddingLeft="15dp"

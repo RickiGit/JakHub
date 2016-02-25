@@ -16,10 +16,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NIK"
+                android:text="Nomor Kartu Keluarga"
                 android:layout_marginBottom="10dp"/>
             <EditText
-                android:id="@+id/EditTextNIK"
+                android:id="@+id/EditTextKK"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:editable="false"
@@ -32,15 +32,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Lengkap"
+                android:text="NIK"
                 android:layout_marginBottom="10dp"/>
             <EditText
-                android:id="@+id/EditTextNamaLengkap"
+                android:id="@+id/EditTextNIK"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:singleLine="true"
+                android:inputType="number"
                 android:background="@drawable/edittext_login"
                 android:layout_marginBottom="10dp"/>
 
@@ -59,7 +60,7 @@
                 android:background="@drawable/edittext_login"
                 android:layout_marginBottom="10dp"/>
 
-            <TextView
+            <!-- <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Jenis Kelamin"
@@ -70,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/edittext_login"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"/> -->
 
             <TextView
                 android:layout_width="match_parent"
